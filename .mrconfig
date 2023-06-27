@@ -1,0 +1,2 @@
+[docs/wiki]
+checkout = git clone git@github.com:bilbilak/refred.wiki.git wiki
