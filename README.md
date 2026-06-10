@@ -40,7 +40,7 @@ We encourage contributions from the community to help improve **_RefRed_** and k
 
 ## ⚖️ License
 
-> Copyright © 2023 [Sam Ariafar](mailto:me@samariafar.com)
+> Copyright © 2023–2026 [Sam Ariafar](mailto:me@samariafar.com)
 
 **_RefRed_** is distributed under the terms of the [MIT License](https://github.com/bilbilak/refred/blob/main/LICENSE.md). Unless it is explicitly stated otherwise, any contribution intentionally submitted for inclusion in this project shall be licensed as _MIT_, without any additional terms or conditions.
 

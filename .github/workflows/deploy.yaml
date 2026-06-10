@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build & Publish
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
