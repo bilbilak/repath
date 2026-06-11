@@ -1,10 +1,10 @@
-name = "refred"
+name = "repath"
 main = "src/index.ts"
 compatibility_date = "2024-06-05"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-  { pattern = "refred.to/*", zone_name = "refred.to" }
+  { pattern = "repath.to/*", zone_name = "repath.to" }
 ]
 
 [observability]
