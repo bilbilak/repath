@@ -17,11 +17,23 @@ const NO_CACHE_HEADERS: ResponseHeaders = {
 
 const MAX_SEGMENTS = 50;
 const MAX_QUERY_LENGTH = 2000;
+const REPO_URL = 'https://github.com/bilbilak/repath';
 
 function badRequest(message: string): Response {
 	return new Response(message, {
 		status: 400,
 		headers: SECURITY_HEADERS,
+	});
+}
+
+function redirect(location: string): Response {
+	return new Response(null, {
+		status: 302,
+		headers: {
+			...SECURITY_HEADERS,
+			...NO_CACHE_HEADERS,
+			Location: location,
+		},
 	});
 }
 
@@ -58,7 +70,7 @@ export default {
 		_ctx: ExecutionContext,
 	): Promise<Response> {
 		const referer = request.headers.get('Referer');
-		if (!referer) return badRequest('Referer header is missing or invalid');
+		if (!referer) return redirect(REPO_URL);
 
 		let refererUrl: URL;
 		let requestUrl: URL;
@@ -98,13 +110,6 @@ export default {
 			}),
 		);
 
-		return new Response(null, {
-			status: 302,
-			headers: {
-				...SECURITY_HEADERS,
-				...NO_CACHE_HEADERS,
-				Location: target,
-			},
-		});
+		return redirect(target);
 	},
 } satisfies ExportedHandler<Env>;

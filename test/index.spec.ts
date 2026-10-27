@@ -14,10 +14,10 @@ async function call(url: string, init?: RequestInit): Promise<Response> {
 
 describe('Repath worker', () => {
 	describe('missing / invalid Referer', () => {
-		it('returns 400 when no Referer header is present', async () => {
+		it('redirects to the project repo when no Referer header is present', async () => {
 			const response = await call('https://repath.to/foo');
-			expect(response.status).toBe(400);
-			expect(await response.text()).toBe('Referer header is missing or invalid');
+			expect(response.status).toBe(302);
+			expect(response.headers.get('Location')).toBe('https://github.com/bilbilak/repath');
 		});
 
 		it('returns 400 when the Referer is not a valid URL', async () => {
